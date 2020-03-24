@@ -1,28 +1,29 @@
 class myMath:
-    def __init__(self,x,y):
-        self.x = x
-        self.y = y
 
-    def add(self):
-        return (self.x + self.y)
+    def add(self,x,y):
+        return (x + y)
 
-    def subract(self):
-        return(self.x - self.y)
+    def subract(self,x,y):
+        return(x - y)
 
-    def multiply(self):
-        return (self.x * self.y)
+    def multiply(self,x=0,y=0):
+        return (x * y)
 
-    def divide(self):
-        return (self.x /self.y)
+    def divide(self,x,y):
+        try:
+            return (x /y)
+        except ZeroDivisionError as e:
+            print e
+            #print('Divide by zero is not allowed')
 
 
 
-sum = myMath(3,4)
-minus = myMath(10,9)
-multiply = myMath(11,12)
-divide = myMath(12,4)
+calculator = myMath()
 
-print(sum.add())
-print(minus.subract())
-print(multiply.multiply())
-print(divide.divide())
+print(calculator.add(3,4))
+print(calculator.subract(10,9))
+print(calculator.multiply(3,3))
+print(calculator.divide(4,2))
+
+
+# we could use one object instead of 4.

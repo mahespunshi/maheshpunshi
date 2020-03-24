@@ -1,43 +1,42 @@
 class myMath:
-    def __init__(self,x,y):
-        self.x = x
-        self.y = y
 
-    def add(self):
-        return (self.x + self.y)
+    def add(self,x,y):
+        return (x+y)
 
-    def subract(self):
-        return(self.x - self.y)
+    def subract(self,x,y):
+        return(x-y)
 
-    def multiply(self):
-        return (self.x * self.y)
+    def multiply(self,x,y):
+        return (x*y)
 
-    def divide(self):
-        return (self.x /self.y)
+    def divide(self,x,y):
+        return (x/y)
 
-while 1:
+calculator = myMath()
+while True:
     print("Choose from 1 -5, what would you like to perform?")
     print("1.Add")
     print("2.subtract")
     print("3.multiply")
     print("4.divide")
     print("5.close")
-    z = input("Enter the number")
-    n1 = int(input("Enter a number"))
+    z = int(input("Choose any option"))
+    if z==5:
+        quit();
+    while z<1 or z>4:
+        print ("Wrong Input")
+        z = int(input("choose any action"))
+
+    n1 = int(input("Enter first number"))
     n2 = int(input("Enter second number"))
-
-    plus = myMath(n1, n2)
-    minus = myMath(n1, n2)
-    multiply = myMath(n1, n2)
-    divide = myMath(n1, n2)
-
     if z == 1:
-        print(plus.add())
+        print(calculator.add(n1,n2))
     elif z == 2:
-        print(minus.subract())
+        print(calculator.subract(n1,n2))
     elif z == 3:
-        print(multiply.multiply())
+        print(calculator.multiply(n1,n2))
     elif z == 4:
-        print(divide.divide())
-    else:
-        quit()
+        try:
+            print(calculator.divide(n1,n2))
+        except ZeroDivisionError as e:
+            print e
